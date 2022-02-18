@@ -15,10 +15,9 @@ namespace MyApp
         [STAThread]
         static async Task Main()
         {
-
-            using (var mgr = new UpdateManager(@"C:\Users\nicor\Desktop\MyApp\Releases"))
+            using (var mgr = UpdateManager.GitHubUpdateManager("https://github.com/nic0-o1/MyApp"))
             {
-                await mgr.UpdateApp();
+                await mgr.Result.UpdateApp();
             }
 
             Application.EnableVisualStyles();
