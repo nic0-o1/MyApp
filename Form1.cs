@@ -15,6 +15,11 @@ namespace MyApp
 		public Form1()
 		{
 			InitializeComponent();
+
+            if (Program.ShowTheWelcomeWizard)
+            {
+				MessageBox.Show("Test");
+            }
 		}
 
 		protected override void OnLoad(EventArgs e)

@@ -12,12 +12,22 @@ namespace MyApp
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static bool ShowTheWelcomeWizard;
         [STAThread]
         static async Task Main()
         {
             using (var mgr = UpdateManager.GitHubUpdateManager("https://github.com/nic0-o1/MyApp"))
             {
                 await mgr.Result.UpdateApp();
+            }
+
+            using (var mgr = new UpdateManager("https://github.com/nic0-o1/MyApp"))
+            {
+                SquirrelAwareApp.HandleEvents(
+                  onInitialInstall: v => mgr.CreateShortcutForThisExe(),
+                  onAppUpdate: v => mgr.CreateShortcutForThisExe(),
+                  onAppUninstall: v => mgr.RemoveShortcutForThisExe(),
+                  onFirstRun: () => ShowTheWelcomeWizard = true);
             }
 
             Application.EnableVisualStyles();

@@ -69,7 +69,7 @@
             // 
             this.locationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.locationTextBox.BackColor = System.Drawing.Color.Red;
+            this.locationTextBox.BackColor = System.Drawing.Color.Indigo;
             this.locationTextBox.Location = new System.Drawing.Point(12, 62);
             this.locationTextBox.Name = "locationTextBox";
             this.locationTextBox.ReadOnly = true;
